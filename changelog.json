@@ -1,0 +1,285 @@
+{
+  "title": "Changelog",
+  "description": "All notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\nThis file has been automatially generated with [@bohr/changelogger](https://github.com/bohr-app/changelogger)",
+  "changes": [
+    {
+      "version": "0.7.5",
+      "date": "2019-02-22",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "Added timout after version bump to ensure data is updated on disk"
+        }
+      ]
+    },
+    {
+      "version": "0.7.4",
+      "date": "2019-02-22",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "Awaiting command to update package.json version"
+        }
+      ]
+    },
+    {
+      "version": "0.7.3",
+      "date": "2019-01-23",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "committing files before closing a release"
+        }
+      ]
+    },
+    {
+      "version": "0.7.2",
+      "date": "2019-01-23",
+      "items": [
+        {
+          "type": "changed",
+          "value": "checking if changelog.json exists before starting any process"
+        }
+      ]
+    },
+    {
+      "version": "0.7.1",
+      "date": "2019-01-11",
+      "items": [
+        {
+          "type": "changed",
+          "value": "using --action to set the action being performed in package.json script publishToNpm"
+        }
+      ]
+    },
+    {
+      "version": "0.7.0",
+      "date": "2019-01-11",
+      "items": [
+        {
+          "type": "changed",
+          "value": "removed unnecessary console.log"
+        },
+        {
+          "type": "added",
+          "value": "added ability to set the action to be performed in terminal"
+        }
+      ]
+    },
+    {
+      "version": "0.6.1",
+      "date": "2018-12-23",
+      "items": [
+        {
+          "type": "changed",
+          "value": "Improved console logs when closing a release"
+        },
+        {
+          "type": "added",
+          "value": "Added ability to postpone commiting added/changed files"
+        },
+        {
+          "type": "changed",
+          "value": "Improved feature name cleaning"
+        },
+        {
+          "type": "changed",
+          "value": "improved commit message when stashing logs for future updates"
+        }
+      ]
+    },
+    {
+      "version": "0.6.0",
+      "date": "2018-12-23",
+      "items": [
+        {
+          "type": "added",
+          "value": "Added ability to close releases and add version tag"
+        }
+      ]
+    },
+    {
+      "version": "0.5.1",
+      "date": "2018-12-22",
+      "items": [
+        {
+          "type": "changed",
+          "value": "added description of new features to README"
+        }
+      ]
+    },
+    {
+      "version": "0.5.0",
+      "date": "2018-12-22",
+      "items": [
+        {
+          "type": "added",
+          "value": "Added ability to stash log entries to be added in future releases"
+        },
+        {
+          "type": "changed",
+          "value": "Renamed the initial menu item to create a new release"
+        },
+        {
+          "type": "changed",
+          "value": "Improved the method to set the project folders"
+        },
+        {
+          "type": "added",
+          "value": "Added ability to retrieve logs from the temp stash and add them to the current release"
+        },
+        {
+          "type": "added",
+          "value": "Added ability to open and close features (GitFlow) and add temp logs after"
+        }
+      ]
+    },
+    {
+      "version": "0.4.3",
+      "date": "2018-12-17",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "commit message after changelog.json editing shows right version number"
+        },
+        {
+          "type": "fixed",
+          "value": "fixed spelling in readme and changelog files"
+        }
+      ]
+    },
+    {
+      "version": "0.4.2",
+      "date": "2018-12-17",
+      "items": [
+        {
+          "type": "changed",
+          "value": "Release branch is now created before updating the version in package.json"
+        },
+        {
+          "type": "added",
+          "value": "Using @bohr/changelogger on itself when publishing to npm"
+        },
+        {
+          "type": "fixed",
+          "value": "removed unnecessary console.log outputs"
+        }
+      ]
+    },
+    {
+      "version": "0.4.1",
+      "date": "2018-12-13",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "fixed publish script to prevent double submission"
+        },
+        {
+          "type": "fixed",
+          "value": "fixed build script by also including the tspath command"
+        }
+      ]
+    },
+    {
+      "version": "0.4.0",
+      "date": "2018-12-13",
+      "items": [
+        {
+          "type": "added",
+          "value": "Added ability to skip all git-related operations"
+        },
+        {
+          "type": "added",
+          "value": "Added ability to automatically apply the git-flow logic by mergin on develop and closing the feature branch and then creating the release branch"
+        }
+      ]
+    },
+    {
+      "version": "0.3.1",
+      "date": "2018-12-12",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "Fixed misspell in README"
+        }
+      ]
+    },
+    {
+      "version": "0.3.0",
+      "date": "2018-12-12",
+      "items": [
+        {
+          "type": "added",
+          "value": "added ability to set `updateType` via the CLI"
+        },
+        {
+          "type": "changed",
+          "value": "improved the error handling logic. Now throwing an uncaught exception on fatal errors"
+        }
+      ]
+    },
+    {
+      "version": "0.2.0",
+      "date": "2018-12-11",
+      "items": [
+        {
+          "type": "added",
+          "value": "Added `installation` and `usage` sections in README"
+        }
+      ]
+    },
+    {
+      "version": "0.1.3",
+      "date": "2018-12-11",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "Removed unnecessary call to start in bin.js"
+        }
+      ]
+    },
+    {
+      "version": "0.1.2",
+      "date": "2018-12-11",
+      "items": [
+        {
+          "type": "added",
+          "value": "added bin.js for global support"
+        },
+        {
+          "type": "fixed",
+          "value": "fixed path to bin.js in package.json"
+        }
+      ]
+    },
+    {
+      "version": "0.1.1",
+      "date": "2018-12-11",
+      "items": [
+        {
+          "type": "fixed",
+          "value": "Added peer dependencies to --dev"
+        }
+      ]
+    },
+    {
+      "version": "0.1.0",
+      "date": "2018-12-11",
+      "items": [
+        {
+          "type": "added",
+          "value": "changes can be set via CLI "
+        },
+        {
+          "type": "added",
+          "value": "changes are stored in a json file"
+        },
+        {
+          "type": "added",
+          "value": "CHANGELOG file automatically generated based on the contents of the json file"
+        }
+      ]
+    }
+  ],
+  "temp": []
+}

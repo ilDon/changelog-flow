@@ -1,0 +1,61 @@
+{
+  "name": "@bohr/changelogger",
+  "version": "0.7.5",
+  "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files",
+  "main": "out/index.js",
+  "bin": {
+    "bohr-cglg": "out/bin.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bohr-app/changelogger"
+  },
+  "keywords": [
+    "change log",
+    "changelog",
+    "CLI",
+    "command line interface",
+    "json",
+    "md",
+    "semantic versioning",
+    "versioning"
+  ],
+  "author": "BOHR S.r.l.",
+  "license": "MIT",
+  "scripts": {
+    "watch-ts": "tsc-watch --onSuccess 'tspath -f'",
+    "local": "TESTING=true node out/index.js",
+    "start": "node out/index.js",
+    "build": "tsc && tspath -f",
+    "publishToNpm": "npm run build && npm run start -- --action=newRelease && npm publish && npm run start -- --action=closeRelease"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "fs-extra": "^7.0.1",
+    "git-interface": "^2.0.4",
+    "git-state": "^4.1.0",
+    "inquirer": "^6.2.1",
+    "moment": "^2.22.2",
+    "node-cmd": "^3.0.0",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {
+    "@angular/compiler": "^7.1.2",
+    "@angular/core": "^7.1.2",
+    "@coldmind/tspath": "https://github.com/ilDon/tspath",
+    "@types/fs-extra": "^5.0.4",
+    "@types/inquirer": "^0.0.43",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^10.12.12",
+    "@types/yargs": "^12.0.1",
+    "codelyzer": "^4.5.0",
+    "rxjs": "^6.0.0",
+    "ts-node": "^7.0.1",
+    "tsc-watch": "^1.0.31",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.2",
+    "zone.js": "~0.8.26"
+  }
+}
