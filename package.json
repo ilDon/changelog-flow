@@ -27,7 +27,6 @@
     "local": "set TESTING=true && node out/index.js",
     "start": "node out/index.js",
     "build": "webpack --config webpack.config.ts --progress --display-error-details",
-    "build-old": "tsc && tspath -f",
     "publishToNpm": "npm run build && npm run start -- --action=newRelease && npm publish && npm run start -- --action=closeRelease"
   },
   "engines": {
