@@ -1,10 +1,11 @@
+import { FlowBase } from '@bohr/changelogger/libs/flow/flow-base.class';
 import { BranchCloser } from '@bohr/changelogger/libs/git-manager/branch-closer.class';
 import { TagCreator } from '@bohr/changelogger/libs/git-manager/tag-creator.class';
 import { handleUncommittedChanges } from '@bohr/changelogger/processes/common-ops/handle-uncommitted-changes.function';
 import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
 import { SHOULD_ADD_TAG } from '@bohr/changelogger/questions/tags/should-add-tag.constant';
 
-export class ReleaseCloser {
+export class ReleaseCloser extends FlowBase {
 
   private branchName: string;
 
@@ -15,6 +16,8 @@ export class ReleaseCloser {
 
     if (await this.askShouldAddTag())
       await this.callAddTag();
+
+    this.switchToDevelop();
   }
 
   private async mergeOnDevelop(): Promise<void> {
@@ -37,6 +40,11 @@ export class ReleaseCloser {
 
   private tagFromBranchName(): string {
     return `v${this.branchName.split('/')[1]}`;
+  }
+
+  private switchToDevelop(): void {
+    this.setGit();
+    this.checkoutToBranch('develop');
   }
 
 }
