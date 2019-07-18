@@ -24,7 +24,7 @@
   "license": "MIT",
   "scripts": {
     "watch-ts": "tsc-watch --onSuccess 'tspath -f'",
-    "local": "TESTING=true node out/index.js",
+    "local": "set TESTING=true && node out/index.js",
     "start": "node out/index.js",
     "build": "webpack --config webpack.config.ts --progress --display-error-details",
     "build-old": "tsc && tspath -f",
