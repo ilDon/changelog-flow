@@ -12,7 +12,7 @@ This tool is under development, `PR`s are welcome!
 
 The easiest way to use `@BOHR/changelogger` is to intall it globally:
 
-    npm i -g @BOHR/changelogger
+    npm i -g @bohr/changelogger
 
 or
 
