@@ -7,6 +7,11 @@ This file has been automatially generated with [@bohr/changelogger](https://gith
 
 ---
 
+## [0.8.0] - 2019-07-18
+### Changed
+- After closing a new release the project automatically switches to the develop branch.
+- Build process now relies on webpack.
+
 ## [0.7.5] - 2019-02-22
 ### Fixed
 - Added timout after version bump to ensure data is updated on disk.
