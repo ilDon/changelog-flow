@@ -44,7 +44,6 @@
   "devDependencies": {
     "@angular/compiler": "^7.1.2",
     "@angular/core": "^7.1.2",
-    "@coldmind/tspath": "https://github.com/ilDon/tspath",
     "@types/fs-extra": "^5.0.4",
     "@types/inquirer": "^0.0.43",
     "@types/moment": "^2.13.0",
