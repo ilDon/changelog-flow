@@ -26,7 +26,8 @@
     "watch-ts": "tsc-watch --onSuccess 'tspath -f'",
     "local": "TESTING=true node out/index.js",
     "start": "node out/index.js",
-    "build": "tsc && tspath -f",
+    "build": "webpack --config webpack.config.ts --progress --display-error-details",
+    "build-old": "tsc && tspath -f",
     "publishToNpm": "npm run build && npm run start -- --action=newRelease && npm publish && npm run start -- --action=closeRelease"
   },
   "engines": {
@@ -49,12 +50,15 @@
     "@types/moment": "^2.13.0",
     "@types/node": "^10.12.12",
     "@types/yargs": "^12.0.1",
+    "awesome-typescript-loader": "^5.2.1",
     "codelyzer": "^4.5.0",
     "rxjs": "^6.0.0",
     "ts-node": "^7.0.1",
     "tsc-watch": "^1.0.31",
     "tslint": "^5.11.0",
     "typescript": "^3.2.2",
+    "webpack": "^4.36.1",
+    "webpack-cli": "^3.3.6",
     "zone.js": "~0.8.26"
   }
 }
