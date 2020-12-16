@@ -1,14 +1,15 @@
 {
-  "name": "@bohr/changelogger",
-  "version": "0.9.1",
+  "name": "changelog-flow",
+  "version": "0.10.0",
   "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files",
   "main": "out/index.js",
   "bin": {
-    "bohr-cglg": "out/bin.js"
+    "bohr-cglg": "out/bin.js",
+    "cglg": "out/bin.js"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/bohr-app/changelogger"
+    "url": "https://github.com/ilDon/changelog-flow.git"
   },
   "keywords": [
     "change log",
@@ -18,9 +19,11 @@
     "json",
     "md",
     "semantic versioning",
-    "versioning"
+    "versioning",
+    "release manager",
+    "git flow"
   ],
-  "author": "BOHR S.r.l.",
+  "author": "ilDon",
   "license": "MIT",
   "scripts": {
     "watch": "webpack --config webpack.config.ts --progress --watch",

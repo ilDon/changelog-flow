@@ -7,6 +7,10 @@ This file has been automatially generated with [@bohr/changelogger](https://gith
 
 ---
 
+## [0.10.0] - 2020-12-16
+### Changed
+- renamed package.
+
 ## [0.9.1] - 2020-12-16
 ### Changed
 - removed dependency to moment and using Date.
