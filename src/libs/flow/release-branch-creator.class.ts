@@ -1,5 +1,5 @@
-import { FlowBase } from '@bohr/changelogger/libs/flow//flow-base.class';
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
+import { FlowBase } from 'changelog-flow/libs/flow//flow-base.class';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
 import { readJSONSync } from 'fs-extra';
 export class ReleaseBranchCreator extends FlowBase {
 

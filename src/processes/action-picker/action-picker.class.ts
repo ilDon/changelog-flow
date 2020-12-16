@@ -1,11 +1,11 @@
-import { FeatureCloserHandler } from '@bohr/changelogger/processes/features/feature-closer-handler.class';
-import { NewFeatureStarter } from '@bohr/changelogger/processes/features/new-feature.starter.class';
-import { ReleaseCloser } from '@bohr/changelogger/processes/releases/closer/release-closer.class';
-import { NewReleaseMaker } from '@bohr/changelogger/processes/releases/creator/new-release-maker.class';
-import { LogsStasher } from '@bohr/changelogger/processes/stash-logs/logs-stasher.class';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
-import { START_ACTION_PICKER, SupportedActions } from '@bohr/changelogger/questions/start-action-picker/start-action-picker';
-import { rendererStarter } from '@bohr/changelogger/renderers/renderer-starter.function';
+import { FeatureCloserHandler } from 'changelog-flow/processes/features/feature-closer-handler.class';
+import { NewFeatureStarter } from 'changelog-flow/processes/features/new-feature.starter.class';
+import { ReleaseCloser } from 'changelog-flow/processes/releases/closer/release-closer.class';
+import { NewReleaseMaker } from 'changelog-flow/processes/releases/creator/new-release-maker.class';
+import { LogsStasher } from 'changelog-flow/processes/stash-logs/logs-stasher.class';
+import { questionMaker } from 'changelog-flow/questions/question-maker.function';
+import { START_ACTION_PICKER, SupportedActions } from 'changelog-flow/questions/start-action-picker/start-action-picker';
+import { rendererStarter } from 'changelog-flow/renderers/renderer-starter.function';
 import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 

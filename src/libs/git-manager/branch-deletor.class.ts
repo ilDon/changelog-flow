@@ -1,4 +1,4 @@
-import { FlowBase } from '@bohr/changelogger/libs/flow//flow-base.class';
+import { FlowBase } from 'changelog-flow/libs/flow//flow-base.class';
 
 export class BranchDeletor extends FlowBase {
 

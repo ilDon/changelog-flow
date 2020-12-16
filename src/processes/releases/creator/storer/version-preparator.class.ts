@@ -1,5 +1,5 @@
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
-import { ChangeDetails, ChangeItems } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
+import { ChangeDetails, ChangeItems } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
 import { readJSONSync } from 'fs-extra';
 import { join } from 'path';
 

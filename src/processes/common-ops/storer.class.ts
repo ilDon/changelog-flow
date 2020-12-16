@@ -1,5 +1,5 @@
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
-import { Loader } from '@bohr/changelogger/processes/common-ops/loader.class';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
+import { Loader } from 'changelog-flow/processes/common-ops/loader.class';
 import { writeJSONSync } from 'fs-extra';
 
 export class Storer extends Loader {

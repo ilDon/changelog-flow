@@ -1,6 +1,6 @@
-import { errorHandler } from '@bohr/changelogger/libs/errors//error-handler.function';
-import { FatalErrors } from '@bohr/changelogger/libs/errors//errors.enum';
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
+import { errorHandler } from 'changelog-flow/libs/errors//error-handler.function';
+import { FatalErrors } from 'changelog-flow/libs/errors//errors.enum';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
 import { Git } from 'git-interface';
 import * as gitState from 'git-state';
 import * as cmd from 'node-cmd';

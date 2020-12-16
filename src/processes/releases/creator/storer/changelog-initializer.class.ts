@@ -1,5 +1,5 @@
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
-import { DEFAULT_CONTENTS } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
+import { DEFAULT_CONTENTS } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
 import { statSync, writeJSONSync } from 'fs-extra';
 
 export class ChangelogInitializer {

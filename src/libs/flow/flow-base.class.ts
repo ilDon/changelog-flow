@@ -1,4 +1,4 @@
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
 import { Git } from 'git-interface';
 import * as gitState from 'git-state';
 

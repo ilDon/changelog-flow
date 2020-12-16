@@ -1,5 +1,5 @@
 {
-  "name": "@bohr/changelogger-test-project",
+  "name": "changelog-flow-test-project",
   "version": "0.4.3",
   "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files"
 }

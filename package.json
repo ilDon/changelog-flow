@@ -1,6 +1,6 @@
 {
   "name": "changelog-flow",
-  "version": "0.10.0",
+  "version": "0.11.0",
   "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files.",
   "main": "out/index.js",
   "bin": {
@@ -25,6 +25,9 @@
   ],
   "author": "ilDon",
   "license": "MIT",
+  "files": [
+    "out/**/*"
+  ],
   "scripts": {
     "watch": "webpack --config webpack.config.ts --progress --watch",
     "local": "set TESTING=true&& node out/index.js",

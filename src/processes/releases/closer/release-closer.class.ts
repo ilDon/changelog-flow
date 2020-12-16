@@ -1,7 +1,7 @@
-import { FlowBase } from '@bohr/changelogger/libs/flow/flow-base.class';
-import { BranchCloser } from '@bohr/changelogger/libs/git-manager/branch-closer.class';
-import { TagCreator } from '@bohr/changelogger/libs/git-manager/tag-creator.class';
-import { handleUncommittedChanges } from '@bohr/changelogger/processes/common-ops/handle-uncommitted-changes.function';
+import { FlowBase } from 'changelog-flow/libs/flow/flow-base.class';
+import { BranchCloser } from 'changelog-flow/libs/git-manager/branch-closer.class';
+import { TagCreator } from 'changelog-flow/libs/git-manager/tag-creator.class';
+import { handleUncommittedChanges } from 'changelog-flow/processes/common-ops/handle-uncommitted-changes.function';
 import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 

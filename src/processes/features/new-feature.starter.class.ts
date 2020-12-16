@@ -1,7 +1,7 @@
-import { FlowBase } from '@bohr/changelogger/libs/flow//flow-base.class';
-import { handleUncommittedChanges } from '@bohr/changelogger/processes/common-ops/handle-uncommitted-changes.function';
-import { FEATURE_NAME } from '@bohr/changelogger/questions/git/feature-name.constant';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
+import { FlowBase } from 'changelog-flow/libs/flow//flow-base.class';
+import { handleUncommittedChanges } from 'changelog-flow/processes/common-ops/handle-uncommitted-changes.function';
+import { FEATURE_NAME } from 'changelog-flow/questions/git/feature-name.constant';
+import { questionMaker } from 'changelog-flow/questions/question-maker.function';
 import { hideBin } from 'yargs/helpers';
 import yargs from 'yargs/yargs';
 

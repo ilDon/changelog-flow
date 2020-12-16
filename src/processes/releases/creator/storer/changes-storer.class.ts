@@ -1,5 +1,5 @@
-import { Storer } from '@bohr/changelogger/processes/common-ops/storer.class';
-import { ChangeDetails } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
+import { Storer } from 'changelog-flow/processes/common-ops/storer.class';
+import { ChangeDetails } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
 
 export class ChangesStorer extends Storer {
 

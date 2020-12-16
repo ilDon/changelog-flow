@@ -3,9 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-This file has been automatially generated with [@bohr/changelogger](https://github.com/bohr-app/changelogger)
+This file has been automatially generated with [changelog-flow](https://github.com/ilDon/changelog-flow)
 
 ---
+
+## [0.11.0] - 2020-12-16
+### Changed
+- changed name in files and readme.
+
+### Fixed
+- using files to pick what files include in npm.
 
 ## [0.10.0] - 2020-12-16
 ### Changed
@@ -93,7 +100,7 @@ This file has been automatially generated with [@bohr/changelogger](https://gith
 
 ## [0.4.2] - 2018-12-17
 ### Added
-- Using @bohr/changelogger on itself when publishing to npm.
+- Using changelog-flow on itself when publishing to npm.
 
 ### Changed
 - Release branch is now created before updating the version in package.json.

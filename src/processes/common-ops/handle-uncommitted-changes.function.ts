@@ -1,7 +1,7 @@
-import { Committer } from '@bohr/changelogger/libs/git-manager/committer.class';
-import { UncommittedChecker } from '@bohr/changelogger/libs/git-manager/uncommitted-checker.class';
-import { COMMIT_CHANGED_SEPARATELY } from '@bohr/changelogger/questions/git/commit-changed-separately.constant';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
+import { Committer } from 'changelog-flow/libs/git-manager/committer.class';
+import { UncommittedChecker } from 'changelog-flow/libs/git-manager/uncommitted-checker.class';
+import { COMMIT_CHANGED_SEPARATELY } from 'changelog-flow/questions/git/commit-changed-separately.constant';
+import { questionMaker } from 'changelog-flow/questions/question-maker.function';
 
 export async function handleUncommittedChanges(): Promise<void> {
   const files = await new UncommittedChecker().exist();

@@ -1,7 +1,7 @@
-import { Storer } from '@bohr/changelogger/processes/common-ops/storer.class';
-import { ChangeItems } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
-import { ADD_TEMP_TO_RELEASE } from '@bohr/changelogger/questions/temp-logs/add-temp-to-release.constant';
+import { Storer } from 'changelog-flow/processes/common-ops/storer.class';
+import { ChangeItems } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
+import { questionMaker } from 'changelog-flow/questions/question-maker.function';
+import { ADD_TEMP_TO_RELEASE } from 'changelog-flow/questions/temp-logs/add-temp-to-release.constant';
 
 export class TempLogsGetter extends Storer {
 

@@ -1,5 +1,5 @@
-import { ChangeDetails, ChangeItems } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
-import { ChangeItemsMaker } from '@bohr/changelogger/renderers/mark-down/change-items-maker.class';
+import { ChangeDetails, ChangeItems } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
+import { ChangeItemsMaker } from 'changelog-flow/renderers/mark-down/change-items-maker.class';
 
 export class ChangeDetailsMaker {
 

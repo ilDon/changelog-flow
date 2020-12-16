@@ -1,7 +1,7 @@
-import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
-import { ChangeDetails, ChangeLogger } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
-import { ChangeDetailsMaker } from '@bohr/changelogger/renderers/mark-down/change-details-maker.class';
-import { SEPARATOR } from '@bohr/changelogger/renderers/renderers.constant';
+import { DIRS } from 'changelog-flow/libs/paths/dirs.constant';
+import { ChangeDetails, ChangeLogger } from 'changelog-flow/processes/releases/creator/storer/deafult-contents.constant';
+import { ChangeDetailsMaker } from 'changelog-flow/renderers/mark-down/change-details-maker.class';
+import { SEPARATOR } from 'changelog-flow/renderers/renderers.constant';
 import { writeFileSync } from 'fs';
 import { readJSONSync } from 'fs-extra';
 

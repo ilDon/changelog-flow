@@ -1,4 +1,4 @@
-import { BranchDeletor } from '@bohr/changelogger/libs/git-manager/branch-deletor.class';
+import { BranchDeletor } from 'changelog-flow/libs/git-manager/branch-deletor.class';
 import * as cmd from 'node-cmd';
 import { promisify } from 'util';
 

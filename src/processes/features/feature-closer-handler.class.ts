@@ -1,7 +1,7 @@
-import { BranchCloser } from '@bohr/changelogger/libs/git-manager/branch-closer.class';
-import { LogsStasher } from '@bohr/changelogger/processes/stash-logs/logs-stasher.class';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
-import { ADD_TEMP_AFTER_FEATURE_CLOSED } from '@bohr/changelogger/questions/temp-logs/add-temp-after-feature-closed.constant';
+import { BranchCloser } from 'changelog-flow/libs/git-manager/branch-closer.class';
+import { LogsStasher } from 'changelog-flow/processes/stash-logs/logs-stasher.class';
+import { questionMaker } from 'changelog-flow/questions/question-maker.function';
+import { ADD_TEMP_AFTER_FEATURE_CLOSED } from 'changelog-flow/questions/temp-logs/add-temp-after-feature-closed.constant';
 
 export class FeatureCloserHandler {
 

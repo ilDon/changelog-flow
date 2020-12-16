@@ -1,38 +1,38 @@
-#  @BOHR/changelogger
+#  `changelog-flow`
 
 CLI tool for creating, updating and maintaining CHANGELOG files. _Because everyone needs to changelog once in a while_.
 
-`@BOHR/changelogger` makes it easy to keep your `version` of `package.json` up-to-date, generate CHANGELOG data, store it in a reusable `json` file, and finally automatically generate a CHANGELOG file (in `markdown`).
+`changelog-flow` makes it easy to keep your `version` of `package.json` up-to-date, generate CHANGELOG data, store it in a reusable `json` file, and finally automatically generate a CHANGELOG file (in `markdown`).
 
-The structure of the log data generated with `@BOHR/changelogger` adheres to the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) specifications and the resulting CHANGELOG file is based on the guidelines by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Updated files are also automatically committed (you can opt-out) to `git`, following the [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) branching model (you can opt-out).
+The structure of the log data generated with `changelog-flow` adheres to the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) specifications and the resulting CHANGELOG file is based on the guidelines by [Keep a Changelog](https://keepachangelog.com/en/1.0.0/). Updated files are also automatically committed (you can opt-out) to `git`, following the [GitFlow](https://datasift.github.io/gitflow/IntroducingGitFlow.html) branching model (you can opt-out).
 
 This tool is under development, `PR`s are welcome!
 
 ## Installation
 
-The easiest way to use `@BOHR/changelogger` is to intall it globally:
+The easiest way to use `changelog-flow` is to intall it globally:
 
-    npm i -g @bohr/changelogger
+    npm i -g changelog-flow
 
 or
 
-    yarn global add @BOHR/changelogger
+    yarn global add changelog-flow
 
-`@BOHR/changelogger` handles some `git` operations via the command line. To perform such `git` operations, you also need to have installed the `git` CLI. To install it, please refer to [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Alternatively, you may skip all git-related operations with `--sg`.
+`changelog-flow` handles some `git` operations via the command line. To perform such `git` operations, you also need to have installed the `git` CLI. To install it, please refer to [Getting Started - Installing Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). Alternatively, you may skip all git-related operations with `--sg`.
 
 ## Git and GitFlow support
 
-`@BOHR/changelogger` makes it easy to commit all newly created or modified files, and follow the GitFlow branching model in the process.
+`changelog-flow` makes it easy to commit all newly created or modified files, and follow the GitFlow branching model in the process.
 
-Before running nearly any action, `@BOHR/changelogger` checks if there are files to commit in the current `branch`. If so, it asks you for a commit message, and then it `commit`s and `push`es them to the remote repository.
+Before running nearly any action, `changelog-flow` checks if there are files to commit in the current `branch`. If so, it asks you for a commit message, and then it `commit`s and `push`es them to the remote repository.
 
-Additionally, `@BOHR/changelogger` provides few quick commands to easily create and close feature branches, and stash changelog entries in a temp store to easily add them in future releases.
+Additionally, `changelog-flow` provides few quick commands to easily create and close feature branches, and stash changelog entries in a temp store to easily add them in future releases.
 
 ## Usage
 
 Open a terminal window where the `package.json` file of your project is located.
 
-Run: `bohr-cglg`, the CLI will then ask you whether you want to:
+Run: `cglg`, the CLI will then ask you whether you want to:
 
 - `stash`: stashes new log entries for a future update
 - `newFeature`: starts a new feature
@@ -58,7 +58,7 @@ You will be asked what kind of change you want to add:
 
 You will then be asked to enter the description of the new log item. Be sure to [write good git commit messages](https://juffalow.com/other/write-good-git-commit-message)!
 
-`@BOHR/changelogger` will then ask you if you want to
+`changelog-flow` will then ask you if you want to
 
 - `Add another change`: takes you back to the change type selection to repeat the process for a new log entry;
 - `Save changes and update the CHANGELOG`: saves the changes in the `temp` property in `changelog.json`.
@@ -86,13 +86,13 @@ You will be guided through the process of creating a new release of your project
 
 #### Versioning
 
-`@BOHR/changelogger` will ask you what kind of update you are making, based on the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) specifications:
+`changelog-flow` will ask you what kind of update you are making, based on the [Semantic Versioning](https://semver.org/spec/v2.0.0.html) specifications:
 
 - _patch_: for making backwards-compatible bug fixes;
 - _minor_: for adding one or more functionalities in a backwards-compatible manner;
 - _major_: for making incompatible API changes.
 
-You can also skip this step by setting the `updateType` variable when running the command `bohr-cglg` (see #Options).
+You can also skip this step by setting the `updateType` variable when running the command `cglg` (see #Options).
 
 You will then be guided through the process described for `Stashing new log entries for a future update`. In this case, once done, selecting `Save changes and update the CHANGELOG` will:
 
@@ -102,7 +102,7 @@ You will then be guided through the process described for `Stashing new log entr
 
 #### Git and GitFlow support
 
-Unless you opt-out of GitFlow (see #Options), `@BOHR/changelogger` will also:
+Unless you opt-out of GitFlow (see #Options), `changelog-flow` will also:
 
 - close the current feature branch (see `Closing the current feature`);
 - create a new release branch (`release/[version-number]`);
@@ -122,7 +122,7 @@ Unless you opt-out of GitFlow (see #Options), `@BOHR/changelogger` will also:
 
 Usage esample:
 
-    bohr-cglg --p --sf --action=newRelease
+    cglg --p --sf --action=newRelease
 
 *If the `updateType` argument is omitted, the CLI will ask to pick it.*
 
@@ -139,9 +139,9 @@ Selecting this option will:
 
 ### Building the CHANGELOG.md file
 
-You can manually rebuild the CHANGELOG file by selecting the second option after running `bohr-cglg`. 
+You can manually rebuild the CHANGELOG file by selecting the second option after running `cglg`. 
 
-`@BOHR/changelogger` will generate the `markdown` file right away in the current working project based on the contents of `changelog.json`.
+`changelog-flow` will generate the `markdown` file right away in the current working project based on the contents of `changelog.json`.
 
 ## License
 
