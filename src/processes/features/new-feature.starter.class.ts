@@ -40,7 +40,7 @@ export class NewFeatureStarter extends FlowBase {
 
   private removeSpecialChars(source: string): string {
     let r = source.toLowerCase();
-    const non_asciis = {
+    const NON_ASCIIS = {
       a: '[àáâãäå]',
       ae: 'æ',
       c: 'ç',
@@ -52,8 +52,8 @@ export class NewFeatureStarter extends FlowBase {
       u: '[ùúûűü]',
       y: '[ýÿ]'
     };
-    for (const i in non_asciis)
-      r = r.replace(new RegExp(non_asciis[i], 'g'), i);
+    for (const i in NON_ASCIIS)
+      r = r.replace(new RegExp(NON_ASCIIS[i], 'g'), i);
 
     return r;
   }

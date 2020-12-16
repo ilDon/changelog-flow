@@ -4,13 +4,13 @@ import { ReleaseCloser } from '@bohr/changelogger/processes/releases/closer/rele
 import { NewReleaseMaker } from '@bohr/changelogger/processes/releases/creator/new-release-maker.class';
 import { LogsStasher } from '@bohr/changelogger/processes/stash-logs/logs-stasher.class';
 import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
-import { START_ACTION_PICKER, SUPPORTED_ACTIONS } from '@bohr/changelogger/questions/start-action-picker/start-action-picker';
+import { START_ACTION_PICKER, SupportedActions } from '@bohr/changelogger/questions/start-action-picker/start-action-picker';
 import { rendererStarter } from '@bohr/changelogger/renderers/renderer-starter.function';
 import { argv } from 'yargs';
 
 export class ActionPicker {
 
-  private actionToPerform: SUPPORTED_ACTIONS;
+  private actionToPerform: SupportedActions;
 
   public async get(): Promise<void> {
     this.getFromArgs();
@@ -22,33 +22,33 @@ export class ActionPicker {
   }
 
   private getFromArgs(): void {
-    if (argv.action && Object.keys(SUPPORTED_ACTIONS).includes(argv.action))
+    if (argv.action && Object.keys(SupportedActions).includes(argv.action))
       this.actionToPerform = argv.action;
   }
 
   private async askUser(): Promise<void> {
     const choice = await questionMaker([START_ACTION_PICKER]);
-    this.actionToPerform = choice.action as SUPPORTED_ACTIONS;
+    this.actionToPerform = choice.action as SupportedActions;
   }
 
   private startSelectedAction(): void {
     switch (this.actionToPerform) {
-      case SUPPORTED_ACTIONS.stash:
+      case SupportedActions.stash:
         new LogsStasher().init();
         break;
-      case SUPPORTED_ACTIONS.newFeature:
+      case SupportedActions.newFeature:
         new NewFeatureStarter().start();
         break;
-      case SUPPORTED_ACTIONS.closeFeature:
+      case SupportedActions.closeFeature:
         new FeatureCloserHandler().close();
         break;
-      case SUPPORTED_ACTIONS.newRelease:
+      case SupportedActions.newRelease:
         new NewReleaseMaker().init();
         break;
-      case SUPPORTED_ACTIONS.closeRelease:
+      case SupportedActions.closeRelease:
         new ReleaseCloser().close();
         break;
-      case SUPPORTED_ACTIONS.md:
+      case SupportedActions.md:
         rendererStarter(this.actionToPerform);
         break;
     }

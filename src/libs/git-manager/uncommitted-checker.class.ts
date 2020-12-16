@@ -1,5 +1,5 @@
 import { errorHandler } from '@bohr/changelogger/libs/errors//error-handler.function';
-import { fatalErrors } from '@bohr/changelogger/libs/errors//errors.enum';
+import { FatalErrors } from '@bohr/changelogger/libs/errors//errors.enum';
 import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
 import { Git } from 'git-interface';
 import * as gitState from 'git-state';
@@ -24,7 +24,7 @@ export class UncommittedChecker {
     this.isGit();
 
     if (!this.isRepository)
-      errorHandler(fatalErrors.notARepository);
+      errorHandler(FatalErrors.notARepository);
 
     this.setGit();
     await this.getUntracked();

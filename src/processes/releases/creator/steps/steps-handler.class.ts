@@ -1,5 +1,5 @@
 import { errorHandler } from '@bohr/changelogger/libs/errors//error-handler.function';
-import { fatalErrors, infoErrors } from '@bohr/changelogger/libs/errors//errors.enum';
+import { FatalErrors, InfoErrors } from '@bohr/changelogger/libs/errors//errors.enum';
 import { CHANGE_VALUE } from '@bohr/changelogger/questions/change-adding/change-value.constant';
 import { LOG_TYPES } from '@bohr/changelogger/questions/change-adding/log-type.constant';
 import { NEXT_STEP } from '@bohr/changelogger/questions/change-adding/next-step-constant';
@@ -45,7 +45,7 @@ export class StepsHandler {
 
   private finish(): void {
     if (this.noMeaningfulData() && this.tempLogs === 0)
-      errorHandler(fatalErrors.noLogsProvided);
+      errorHandler(FatalErrors.noLogsProvided);
     if (this.newChanges.length)
       this.cleanEmptyMessages();
   }
@@ -61,7 +61,7 @@ export class StepsHandler {
     if (cleaned.length === this.newChanges.length)
       return;
 
-    errorHandler(infoErrors.cleanedEmpty);
+    errorHandler(InfoErrors.cleanedEmpty);
     this.newChanges = cleaned;
   }
 

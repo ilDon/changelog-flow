@@ -117,6 +117,7 @@ Unless you opt-out of GitFlow (see #Options), `@BOHR/changelogger` will also:
 | `m` | `[string]` | sets `updateType` to `major` | `undefined` |
 | `sg` | `[boolean]` | skips all git operations | `false` |
 | `sf` | `[boolean]` | skips all GitFlow operations | `false` |
+| `noTag` | `[boolean]` | skips adding a tag for the new release | `false` |
 | `action` | `[string]` | sets the action to be performed | `undefined` |
 
 Usage esample:

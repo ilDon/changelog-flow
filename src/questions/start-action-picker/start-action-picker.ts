@@ -1,6 +1,7 @@
 import { Question } from 'inquirer';
+/* eslint-disable no-shadow */
 
-export enum SUPPORTED_ACTIONS {
+export enum SupportedActions {
   stash = 'stash',
   newFeature = 'newfeature',
   closeFeature = 'closefeature',
@@ -14,11 +15,11 @@ export const START_ACTION_PICKER: Question = {
   name: 'action',
   message: 'What do you want to do?',
   choices: [
-    { name: 'Stash new log entries for a future update', value: SUPPORTED_ACTIONS.stash },
-    { name: 'Start a new feature', value: SUPPORTED_ACTIONS.newFeature },
-    { name: 'Close current feature', value: SUPPORTED_ACTIONS.closeFeature },
-    { name: 'Create a new release', value: SUPPORTED_ACTIONS.newRelease },
-    { name: 'Close current release', value: SUPPORTED_ACTIONS.closeRelease },
-    { name: 'Build the CHANGELOG.md file', value: SUPPORTED_ACTIONS.md }
+    { name: 'Stash new log entries for a future update', value: SupportedActions.stash },
+    { name: 'Start a new feature', value: SupportedActions.newFeature },
+    { name: 'Close current feature', value: SupportedActions.closeFeature },
+    { name: 'Create a new release', value: SupportedActions.newRelease },
+    { name: 'Close current release', value: SupportedActions.closeRelease },
+    { name: 'Build the CHANGELOG.md file', value: SupportedActions.md }
   ]
 };

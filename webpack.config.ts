@@ -1,6 +1,6 @@
-import { TsConfigPathsPlugin } from 'awesome-typescript-loader';
 import * as fs from 'fs-extra';
 import { join } from 'path';
+import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration } from 'webpack';
 
 const packageConfig = fs.readJSONSync('./package.json', { encoding: 'utf-8' });
@@ -16,7 +16,7 @@ const serverConfig: Configuration = {
   resolve: {
     extensions: ['.ts', '.js'],
     plugins: [
-      new TsConfigPathsPlugin({ configFileName: 'tsconfig.json' })
+      new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })
     ]
   },
   target: 'node',
@@ -33,7 +33,7 @@ const serverConfig: Configuration = {
   module: {
     rules: [{
       test: /\.ts$/,
-      loader: 'awesome-typescript-loader'
+      loader: 'ts-loader'
     }]
   },
   mode: 'production',

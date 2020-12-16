@@ -30,7 +30,9 @@ export class LogsStasher {
   }
 
   private addChangesToCommitMessage(): void {
-    this.newChanges.forEach(change => { this.commitMessage += `${change.value};`; });
+    this.newChanges.forEach(change => {
+ this.commitMessage += `${change.value};`;
+});
     this.commitMessage = this.commitMessage.replace(/;$/, '.');
   }
 

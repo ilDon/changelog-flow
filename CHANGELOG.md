@@ -7,6 +7,14 @@ This file has been automatially generated with [@bohr/changelogger](https://gith
 
 ---
 
+## [0.9.0] - 2020-12-16
+### Changed
+- tags are now always added when closing a new release, unless --noTag is passed to the CLI.
+- switched to eslint for linting.
+
+### Security
+- updated dependencies.
+
 ## [0.8.0] - 2019-07-18
 ### Changed
 - After closing a new release the project automatically switches to the develop branch.
