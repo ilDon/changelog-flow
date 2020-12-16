@@ -2,7 +2,10 @@ import { UpdateTypes } from '@bohr/changelogger/processes/releases/creator/versi
 import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
 import { UPDATE_TYPES } from '@bohr/changelogger/questions/update-type/update-type.constant';
 import * as cmd from 'node-cmd';
-import { argv } from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(hideBin(process.argv)).argv;
 
 export class UpdateVersion {
 

@@ -6,7 +6,10 @@ import { LogsStasher } from '@bohr/changelogger/processes/stash-logs/logs-stashe
 import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
 import { START_ACTION_PICKER, SupportedActions } from '@bohr/changelogger/questions/start-action-picker/start-action-picker';
 import { rendererStarter } from '@bohr/changelogger/renderers/renderer-starter.function';
-import { argv } from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(hideBin(process.argv)).argv;
 
 export class ActionPicker {
 
@@ -22,8 +25,8 @@ export class ActionPicker {
   }
 
   private getFromArgs(): void {
-    if (argv.action && Object.keys(SupportedActions).includes(argv.action))
-      this.actionToPerform = argv.action;
+    if (argv.action && Object.keys(SupportedActions).includes(argv.action as SupportedActions))
+      this.actionToPerform = argv.action as SupportedActions;
   }
 
   private async askUser(): Promise<void> {

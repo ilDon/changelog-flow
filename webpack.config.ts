@@ -1,9 +1,11 @@
-import * as fs from 'fs-extra';
+import { readJSONSync } from 'fs-extra';
 import { join } from 'path';
 import { TsconfigPathsPlugin } from 'tsconfig-paths-webpack-plugin';
 import { Configuration } from 'webpack';
+/* eslint-disable import/no-default-export */
+/* eslint-disable @typescript-eslint/naming-convention */
 
-const packageConfig = fs.readJSONSync('./package.json', { encoding: 'utf-8' });
+const packageConfig = readJSONSync('./package.json', { encoding: 'utf-8' });
 
 const externals = {};
 for (const packageName in packageConfig.dependencies)
@@ -16,7 +18,7 @@ const serverConfig: Configuration = {
   resolve: {
     extensions: ['.ts', '.js'],
     plugins: [
-      new TsconfigPathsPlugin({ configFile: "./tsconfig.json" })
+      new TsconfigPathsPlugin({ configFile: './tsconfig.json' })
     ]
   },
   target: 'node',
@@ -39,8 +41,12 @@ const serverConfig: Configuration = {
   mode: 'production',
   optimization: {
     minimize: false
-  }
+  },
+  ignoreWarnings: [
+    {
+      module: /yargs/
+    }
+  ]
 };
 
-// tslint:disable-next-line:no-default-export
 export default [serverConfig];

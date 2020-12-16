@@ -1,6 +1,6 @@
 import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
 import { Loader } from '@bohr/changelogger/processes/common-ops/loader.class';
-import * as fs from 'fs-extra';
+import { writeJSONSync } from 'fs-extra';
 
 export class Storer extends Loader {
 
@@ -14,7 +14,7 @@ export class Storer extends Loader {
   }
 
   protected doStoreChanges(): void {
-    fs.writeJSONSync(DIRS.pathToChangelogJson, this.changeLogger, { spaces: 2 });
+    writeJSONSync(DIRS.pathToChangelogJson, this.changeLogger, { spaces: 2 });
   }
 
 }

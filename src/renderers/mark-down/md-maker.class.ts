@@ -2,7 +2,8 @@ import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
 import { ChangeDetails, ChangeLogger } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
 import { ChangeDetailsMaker } from '@bohr/changelogger/renderers/mark-down/change-details-maker.class';
 import { SEPARATOR } from '@bohr/changelogger/renderers/renderers.constant';
-import * as fs from 'fs-extra';
+import { writeFileSync } from 'fs';
+import { readJSONSync } from 'fs-extra';
 
 export class MdMaker {
 
@@ -20,7 +21,7 @@ export class MdMaker {
   }
 
   private loadJson(): void {
-    this.jsonData = fs.readJSONSync(DIRS.pathToChangelogJson);
+    this.jsonData = readJSONSync(DIRS.pathToChangelogJson);
   }
 
   private addTitle(): void {
@@ -44,7 +45,7 @@ export class MdMaker {
   }
 
   private storeRendered(): void {
-    fs.writeFileSync(DIRS.pathToChangelogMD, this.rendered);
+    writeFileSync(DIRS.pathToChangelogMD, this.rendered);
   }
 
 }

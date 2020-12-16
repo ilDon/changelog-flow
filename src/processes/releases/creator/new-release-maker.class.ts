@@ -10,8 +10,11 @@ import { VersionPreparator } from '@bohr/changelogger/processes/releases/creator
 import { UpdateVersion } from '@bohr/changelogger/processes/releases/creator/versioning/update-version.class';
 import { TempLogsGetter } from '@bohr/changelogger/processes/stash-logs/temp-logs-getter.class';
 import { MdMaker } from '@bohr/changelogger/renderers/mark-down/md-maker.class';
-import * as fs from 'fs-extra';
-import { argv } from 'yargs';
+import { readJSONSync } from 'fs-extra';
+import { hideBin } from 'yargs/helpers';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(hideBin(process.argv)).argv;
 
 export class NewReleaseMaker {
 
@@ -77,7 +80,7 @@ export class NewReleaseMaker {
   }
 
   private async commitNewVersion(): Promise<void> {
-    const packageInfo = fs.readJSONSync(DIRS.packageJsonPath);
+    const packageInfo = readJSONSync(DIRS.packageJsonPath);
     await new Committer(undefined, `Version ${packageInfo.version}`).commit();
   }
 

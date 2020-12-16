@@ -3,7 +3,10 @@ import { handleUncommittedChanges } from '@bohr/changelogger/processes/common-op
 import { StepsHandler } from '@bohr/changelogger/processes/releases/creator/steps/steps-handler.class';
 import { ChangeItems } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
 import { TempStorer } from '@bohr/changelogger/processes/stash-logs/temp-storer.class';
-import { argv } from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(hideBin(process.argv)).argv;
 
 export class LogsStasher {
 
@@ -31,8 +34,8 @@ export class LogsStasher {
 
   private addChangesToCommitMessage(): void {
     this.newChanges.forEach(change => {
- this.commitMessage += `${change.value};`;
-});
+      this.commitMessage += `${change.value};`;
+    });
     this.commitMessage = this.commitMessage.replace(/;$/, '.');
   }
 

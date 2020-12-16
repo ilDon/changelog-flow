@@ -1,6 +1,6 @@
 {
   "name": "@bohr/changelogger",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files",
   "main": "out/index.js",
   "bin": {
@@ -26,27 +26,25 @@
     "watch": "webpack --config webpack.config.ts --progress --watch",
     "local": "set TESTING=true&& node out/index.js",
     "start": "node out/index.js",
-    "build": "webpack --config webpack.config.ts --progress",
+    "build": "webpack --config webpack.config.ts",
     "deploy": "npm run build && npm run start -- --action=newRelease && npm publish && npm run start -- --action=closeRelease"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "dependencies": {
     "fs-extra": "^9.0.1",
     "git-interface": "^2.1.0",
     "git-state": "^4.1.0",
     "inquirer": "6.2.1",
-    "moment": "^2.22.2",
     "node-cmd": "^3.0.0",
-    "yargs": "^12.0.5"
+    "yargs": "^16.2.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^5.0.4",
     "@types/inquirer": "0.0.43",
-    "@types/moment": "^2.13.0",
     "@types/node": "^10.12.12",
-    "@types/yargs": "^12.0.1",
+    "@types/yargs": "^15.0.12",
     "@typescript-eslint/eslint-plugin": "^4.10.0",
     "@typescript-eslint/eslint-plugin-tslint": "^4.10.0",
     "@typescript-eslint/parser": "^4.10.0",

@@ -1,8 +1,7 @@
 import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
 import { ChangeDetails, ChangeItems } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
-import * as fs from 'fs-extra';
-import * as moment from 'moment';
-import * as path from 'path';
+import { readJSONSync } from 'fs-extra';
+import { join } from 'path';
 
 export class VersionPreparator {
 
@@ -20,16 +19,30 @@ export class VersionPreparator {
   }
 
   private getPackageInfo(): void {
-    const finalPath = path.join(DIRS.path, 'package.json');
-    this.packageInfo = fs.readJSONSync(finalPath);
+    const finalPath = join(DIRS.path, 'package.json');
+    this.packageInfo = readJSONSync(finalPath);
   }
 
   private setChangeDetails(): void {
     this.changeDetails = {
       version: this.packageInfo.version,
-      date: moment().format('YYYY-MM-DD'),
+      date: this.isoDate(),
       items: this.changeItems
     };
+  }
+
+  private isoDate(): string {
+    const d = new Date();
+    let month = `${d.getMonth() + 1}`;
+    let day = `${d.getDate()}`;
+    const year = d.getFullYear();
+
+    if (month.length < 2)
+      month = `0${month}`;
+    if (day.length < 2)
+      day = `0${day}`;
+
+    return [year, month, day].join('-');
   }
 
 }

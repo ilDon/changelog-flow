@@ -7,6 +7,14 @@ This file has been automatially generated with [@bohr/changelogger](https://gith
 
 ---
 
+## [0.9.1] - 2020-12-16
+### Changed
+- removed dependency to moment and using Date.
+- improved import strategy for fs, fs-extra and path.
+
+### Security
+- updated yargs to latest version.
+
 ## [0.9.0] - 2020-12-16
 ### Changed
 - tags are now always added when closing a new release, unless --noTag is passed to the CLI.

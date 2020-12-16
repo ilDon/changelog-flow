@@ -2,9 +2,10 @@ import { FlowBase } from '@bohr/changelogger/libs/flow/flow-base.class';
 import { BranchCloser } from '@bohr/changelogger/libs/git-manager/branch-closer.class';
 import { TagCreator } from '@bohr/changelogger/libs/git-manager/tag-creator.class';
 import { handleUncommittedChanges } from '@bohr/changelogger/processes/common-ops/handle-uncommitted-changes.function';
-import { questionMaker } from '@bohr/changelogger/questions/question-maker.function';
-import { SHOULD_ADD_TAG } from '@bohr/changelogger/questions/tags/should-add-tag.constant';
-import { argv } from 'yargs';
+import { hideBin } from 'yargs/helpers';
+import yargs from 'yargs/yargs';
+
+const argv = yargs(hideBin(process.argv)).argv;
 
 export class ReleaseCloser extends FlowBase {
 

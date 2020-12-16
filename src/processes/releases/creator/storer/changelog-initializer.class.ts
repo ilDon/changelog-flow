@@ -1,6 +1,6 @@
 import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
 import { DEFAULT_CONTENTS } from '@bohr/changelogger/processes/releases/creator/storer/deafult-contents.constant';
-import * as fs from 'fs-extra';
+import { statSync, writeJSONSync } from 'fs-extra';
 
 export class ChangelogInitializer {
 
@@ -14,7 +14,7 @@ export class ChangelogInitializer {
 
   private checkIfExists(): boolean {
     try {
-      fs.statSync(DIRS.pathToChangelogJson);
+      statSync(DIRS.pathToChangelogJson);
       return true;
     } catch (err) {
       return false;
@@ -22,7 +22,7 @@ export class ChangelogInitializer {
   }
 
   private createJsonFile(): void {
-    fs.writeJSONSync(DIRS.pathToChangelogJson, DEFAULT_CONTENTS, { spaces: 2 });
+    writeJSONSync(DIRS.pathToChangelogJson, DEFAULT_CONTENTS, { spaces: 2 });
   }
 
 }

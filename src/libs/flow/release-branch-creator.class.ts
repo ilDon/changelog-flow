@@ -1,6 +1,6 @@
 import { FlowBase } from '@bohr/changelogger/libs/flow//flow-base.class';
 import { DIRS } from '@bohr/changelogger/libs/paths/dirs.constant';
-import * as fs from 'fs-extra';
+import { readJSONSync } from 'fs-extra';
 export class ReleaseBranchCreator extends FlowBase {
 
   private packageInfo;
@@ -16,7 +16,7 @@ export class ReleaseBranchCreator extends FlowBase {
   }
 
   private getPackageInfo(): void {
-    this.packageInfo = fs.readJSONSync(DIRS.packageJsonPath);
+    this.packageInfo = readJSONSync(DIRS.packageJsonPath);
   }
 
   private setBranchName(): void {
