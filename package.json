@@ -1,6 +1,6 @@
 {
   "name": "changelog-flow",
-  "version": "0.11.0",
+  "version": "0.12.0",
   "description": "CLI tool to facilitate creating, updating and maintaining CHANGELOG files.",
   "main": "out/index.js",
   "bin": {

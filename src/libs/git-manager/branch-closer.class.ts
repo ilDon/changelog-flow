@@ -6,7 +6,7 @@ export class BranchCloser extends BranchDeletor {
 
   constructor(
     private scope: 'feature' | 'release',
-    private destinationBranch: 'develop' | 'master',
+    private destinationBranch: 'develop' | 'master' | 'main',
     private shouldDeleteBranch: boolean
   ) {
     super();

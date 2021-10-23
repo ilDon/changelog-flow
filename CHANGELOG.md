@@ -7,6 +7,10 @@ This file has been automatially generated with [changelog-flow](https://github.c
 
 ---
 
+## [0.12.0] - 2021-10-23
+### Added
+- added support for repositories with base branch named "main".
+
 ## [0.11.0] - 2020-12-16
 ### Changed
 - changed name in files and readme.
