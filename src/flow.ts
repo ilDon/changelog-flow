@@ -206,7 +206,8 @@ export class PushPlan {
     for (let attempt = 0; attempt < 3; attempt++) {
       const result = await ctx.git.attempt(command(atomic, deletes));
       if (result.code === 0) {
-        this.pushed = this.describe();
+        // In dry-run nothing left the machine: report nothing as pushed.
+        if (!ctx.dryRun) this.pushed = this.describe();
         return;
       }
       const output = result.stderr + result.stdout;

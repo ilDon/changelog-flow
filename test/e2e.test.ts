@@ -258,6 +258,7 @@ describe('Safety', () => {
     expect(repo.branch()).toBe('develop');
     expect(git(repo.work, 'rev-parse', 'HEAD')).toBe(head);
     expect(repo.json('package.json').version).toBe('1.0.0');
+    expect(run.all).not.toContain('Pushed:');
   });
 
   test('a conflicting feature is not merged and you stay on it', () => {
