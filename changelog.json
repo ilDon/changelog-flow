@@ -3,6 +3,48 @@
   "description": "All notable changes to this project will be documented in this file.\n\nThe format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).\n\nThis file has been automatially generated with [changelog-flow](https://github.com/ilDon/changelog-flow)",
   "changes": [
     {
+      "version": "1.0.0",
+      "date": "2026-10-27",
+      "items": [
+        {
+          "type": "changed",
+          "value": "No runtime dependencies any more: the CLI is a single file that runs on Node.js 18+ and Bun."
+        },
+        {
+          "type": "added",
+          "value": "Support for repositories with only `main`/`master` (no `develop`), with or without release branches. The branching model is auto-detected or set in the new `config` section of `changelog.json`."
+        },
+        {
+          "type": "added",
+          "value": "Agent mode: outside a terminal, `cglg` never asks questions. It exits with code 2 and prints what to do and the exact command to run next. Optionally, the user must approve agent-written entries (`agent.confirmChangelog`, `--approved`)."
+        },
+        {
+          "type": "added",
+          "value": "New `status`, `commits`, `guide` and `init` commands, and the `--entry`, `--message`, `--dry-run`, `--no-push` and `--json` options."
+        },
+        {
+          "type": "changed",
+          "value": "Much faster: no fixed 2-second wait, no `npm version` subprocess, and one atomic `git push` per command."
+        },
+        {
+          "type": "changed",
+          "value": "`release finish` checks for merge conflicts before changing anything, and can be run again to resume."
+        },
+        {
+          "type": "changed",
+          "value": "`feature start` no longer pushes the new branch (use `--push`), npm's `version` scripts no longer run, tags are annotated, and CHANGELOG sections follow the Keep a Changelog order."
+        },
+        {
+          "type": "fixed",
+          "value": "Line endings (CRLF/LF) of every written file are preserved, so Windows and macOS users no longer get whole-file diffs."
+        },
+        {
+          "type": "fixed",
+          "value": "Commit messages with quotes or special characters no longer break, because git runs without a shell."
+        }
+      ]
+    },
+    {
       "version": "0.12.0",
       "date": "2021-10-23",
       "items": [
@@ -365,42 +407,5 @@
       ]
     }
   ],
-  "temp": [
-    {
-      "type": "changed",
-      "value": "No runtime dependencies any more: the CLI is a single file that runs on Node.js 18+ and Bun."
-    },
-    {
-      "type": "added",
-      "value": "Support for repositories with only `main`/`master` (no `develop`), with or without release branches. The branching model is auto-detected or set in the new `config` section of `changelog.json`."
-    },
-    {
-      "type": "added",
-      "value": "Agent mode: outside a terminal, `cglg` never asks questions. It exits with code 2 and prints what to do and the exact command to run next. Optionally, the user must approve agent-written entries (`agent.confirmChangelog`, `--approved`)."
-    },
-    {
-      "type": "added",
-      "value": "New `status`, `commits`, `guide` and `init` commands, and the `--entry`, `--message`, `--dry-run`, `--no-push` and `--json` options."
-    },
-    {
-      "type": "changed",
-      "value": "Much faster: no fixed 2-second wait, no `npm version` subprocess, and one atomic `git push` per command."
-    },
-    {
-      "type": "changed",
-      "value": "`release finish` checks for merge conflicts before changing anything, and can be run again to resume."
-    },
-    {
-      "type": "changed",
-      "value": "`feature start` no longer pushes the new branch (use `--push`), npm's `version` scripts no longer run, tags are annotated, and CHANGELOG sections follow the Keep a Changelog order."
-    },
-    {
-      "type": "fixed",
-      "value": "Line endings (CRLF/LF) of every written file are preserved, so Windows and macOS users no longer get whole-file diffs."
-    },
-    {
-      "type": "fixed",
-      "value": "Commit messages with quotes or special characters no longer break, because git runs without a shell."
-    }
-  ]
+  "temp": []
 }

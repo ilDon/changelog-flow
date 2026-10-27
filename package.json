@@ -1,6 +1,6 @@
 {
   "name": "changelog-flow",
-  "version": "0.12.0",
+  "version": "1.0.0",
   "description": "Zero-dependency CLI that makes releases procedural: feature/release branches, semantic versioning and a Keep a Changelog CHANGELOG, usable by humans and AI agents.",
   "type": "module",
   "bin": {

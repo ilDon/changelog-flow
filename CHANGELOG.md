@@ -7,6 +7,22 @@ This file has been automatially generated with [changelog-flow](https://github.c
 
 ---
 
+## [1.0.0] - 2026-10-27
+### Added
+- Support for repositories with only `main`/`master` (no `develop`), with or without release branches. The branching model is auto-detected or set in the new `config` section of `changelog.json`.
+- Agent mode: outside a terminal, `cglg` never asks questions. It exits with code 2 and prints what to do and the exact command to run next. Optionally, the user must approve agent-written entries (`agent.confirmChangelog`, `--approved`).
+- New `status`, `commits`, `guide` and `init` commands, and the `--entry`, `--message`, `--dry-run`, `--no-push` and `--json` options.
+
+### Changed
+- No runtime dependencies any more: the CLI is a single file that runs on Node.js 18+ and Bun.
+- Much faster: no fixed 2-second wait, no `npm version` subprocess, and one atomic `git push` per command.
+- `release finish` checks for merge conflicts before changing anything, and can be run again to resume.
+- `feature start` no longer pushes the new branch (use `--push`), npm's `version` scripts no longer run, tags are annotated, and CHANGELOG sections follow the Keep a Changelog order.
+
+### Fixed
+- Line endings (CRLF/LF) of every written file are preserved, so Windows and macOS users no longer get whole-file diffs.
+- Commit messages with quotes or special characters no longer break, because git runs without a shell.
+
 ## [0.12.0] - 2021-10-23
 ### Added
 - added support for repositories with base branch named "main".
@@ -154,7 +170,7 @@ This file has been automatially generated with [changelog-flow](https://github.c
 
 ## [0.1.0] - 2018-12-11
 ### Added
-- changes can be set via CLI .
+- changes can be set via CLI.
 - changes are stored in a json file.
 - CHANGELOG file automatically generated based on the contents of the json file.
 
