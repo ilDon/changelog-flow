@@ -319,6 +319,48 @@ describe('Safety', () => {
   });
 });
 
+describe('Line endings', () => {
+  const crlf = (text: string): string => text.replace(/\n/g, '\r\n');
+  const isCrlf = (text: string): boolean => text.includes('\r\n') && !/[^\r]\n/.test(text);
+
+  test('a CRLF project stays CRLF, and a release only diffs the changed lines', () => {
+    const repo = setupRepo({ main: 'main', develop: false });
+    // Rewrite the tracked files with Windows line endings, as a Windows checkout without autocrlf would have them.
+    for (const file of ['package.json', 'changelog.json'])
+      writeFileSync(join(repo.work, file), crlf(readFileSync(join(repo.work, file), 'utf8').replace(/\r\n/g, '\n')));
+    const lock = { name: 'demo', version: '1.0.0', lockfileVersion: 3, packages: { '': { name: 'demo', version: '1.0.0' } } };
+    writeFileSync(join(repo.work, 'package-lock.json'), crlf(`${JSON.stringify(lock, null, 2)}\n`));
+    git(repo.work, 'add', '-A');
+    git(repo.work, 'commit', '-qm', 'chore: windows line endings');
+
+    expectOk(cglg(repo.work, 'add', '--fixed', 'Stashed fix', '--approved'));
+    expectOk(cglg(repo.work, 'release', 'start', 'minor', '--entry', 'added: Multi\nline entry', '--approved'));
+
+    for (const file of ['package.json', 'package-lock.json', 'changelog.json', 'CHANGELOG.md'])
+      expect(isCrlf(readFileSync(join(repo.work, file), 'utf8'))).toBe(true);
+
+    // package.json: only the version line changed; package-lock.json: the two version lines.
+    const numstat = (file: string): string => git(repo.work, 'diff', '--numstat', 'HEAD~1', 'HEAD', '--', file).split('\t').slice(0, 2).join(' ');
+    expect(numstat('package.json')).toBe('1 1');
+    expect(numstat('package-lock.json')).toBe('2 2');
+    expect(repo.json('changelog.json').changes[0].version).toBe('1.1.0');
+  });
+
+  test('LF files stay LF, and new files follow the project', () => {
+    const repo = setupRepo({ main: 'main', develop: false });
+    expectOk(cglg(repo.work, 'release', 'start', 'patch', '--entry', 'fixed: X', '--approved'));
+    for (const file of ['package.json', 'changelog.json', 'CHANGELOG.md'])
+      expect(readFileSync(join(repo.work, file), 'utf8')).not.toContain('\r');
+
+    const dir = mkdtempSync(join(tmpdir(), 'cglg-'));
+    dirs.push(dir);
+    writeFileSync(join(dir, 'package.json'), '{\r\n  "name": "x",\r\n  "version": "1.0.0"\r\n}\r\n');
+    expectOk(cglg(dir, 'release', 'start', 'patch', '--entry', 'fixed: X', '--sg', '--approved'));
+    for (const file of ['changelog.json', 'CHANGELOG.md'])
+      expect(isCrlf(readFileSync(join(dir, file), 'utf8'))).toBe(true);
+  });
+});
+
 describe('Other modes', () => {
   test('--sg works without git and without package.json', () => {
     const dir = mkdtempSync(join(tmpdir(), 'cglg-'));

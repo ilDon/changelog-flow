@@ -1,8 +1,9 @@
-import { existsSync, writeFileSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { type Flags, flagString } from './args';
 import { CHANGELOG_JSON, type ChangelogData, defaultData, loadChangelog, renderMarkdown, serialize } from './changelog';
 import { type Config, resolveConfig } from './config';
+import { applyEol, detectEol, type Eol } from './eol';
 import { Git, readRepoState, type RepoState } from './git';
 import { CliError, Reporter, shellQuote } from './ui';
 import { currentVersion, type CurrentVersion } from './version';
@@ -29,6 +30,8 @@ export interface Ctx {
   changelogPath: string;
   data: ChangelogData | null;
   config: Config;
+  /** Line ending used by the project's existing files (for files we create). */
+  eol?: Eol;
 }
 
 export async function createContext(argv: string[], flags: Flags, args: string[]): Promise<Ctx> {
@@ -58,9 +61,36 @@ export async function createContext(argv: string[], flags: Flags, args: string[]
   };
 }
 
+function readIfExists(path: string): string | null {
+  return existsSync(path) ? readFileSync(path, 'utf8') : null;
+}
+
+/** Line ending of the project's own files, so new files match them. LF when nothing tells otherwise. */
+function projectEol(ctx: Ctx): Eol {
+  if (!ctx.eol) {
+    const candidates = [CHANGELOG_JSON, 'package.json', ctx.config.markdownFile].filter((file): file is string => !!file);
+    ctx.eol = '\n';
+    for (const file of candidates) {
+      const eol = detectEol(readIfExists(join(ctx.cwd, file)) ?? '');
+      if (eol) {
+        ctx.eol = eol;
+        break;
+      }
+    }
+  }
+  return ctx.eol;
+}
+
+/**
+ * Writes a project file keeping the line endings it already has (CRLF stays CRLF, LF stays LF),
+ * so releases made on Windows and macOS/Linux never rewrite whole files. New files follow the project.
+ */
 export function writeProjectFile(ctx: Ctx, file: string, contents: string): void {
   ctx.report.step(`${ctx.dryRun ? '[dry-run] would write' : 'Writing'} ${file}`);
-  if (!ctx.dryRun) writeFileSync(join(ctx.cwd, file), contents);
+  if (ctx.dryRun) return;
+  const path = join(ctx.cwd, file);
+  const eol = detectEol(readIfExists(path) ?? '') ?? projectEol(ctx);
+  writeFileSync(path, applyEol(contents, eol));
 }
 
 export function getData(ctx: Ctx): ChangelogData {

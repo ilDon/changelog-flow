@@ -3,6 +3,7 @@ import { parseArgs } from '../src/args';
 import { entriesFromFlags, parseEntry, renderMarkdown, todayISO } from '../src/changelog';
 import { classify, suggestBump } from '../src/commits';
 import { resolveConfig } from '../src/config';
+import { applyEol, detectEol } from '../src/eol';
 import { parseStatus, type RepoState } from '../src/git';
 import { slugify } from '../src/flow';
 import { bump, compare, isValid } from '../src/semver';
@@ -207,5 +208,19 @@ describe('slugify', () => {
     expect(slugify('Pagina Città  è bella!')).toBe('pagina-citta-e-bella');
     expect(slugify('  Fix: login/flow v1.2 ')).toBe('fix-login-flow-v1.2');
     expect(slugify('Straße & Œuvre')).toBe('strasse-oeuvre');
+  });
+});
+
+describe('line endings', () => {
+  test('detects the dominant line ending', () => {
+    expect(detectEol('a\nb\n')).toBe('\n');
+    expect(detectEol('a\r\nb\r\n')).toBe('\r\n');
+    expect(detectEol('a\r\nb\r\nc\n')).toBe('\r\n');
+    expect(detectEol('no breaks')).toBeNull();
+  });
+
+  test('rewrites every break, including mixed ones', () => {
+    expect(applyEol('a\nb\r\nc\n', '\r\n')).toBe('a\r\nb\r\nc\r\n');
+    expect(applyEol('a\r\nb\nc\r\n', '\n')).toBe('a\nb\nc\n');
   });
 });

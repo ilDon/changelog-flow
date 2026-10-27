@@ -58,6 +58,8 @@ If `release start` runs on a feature branch, the feature is merged into the base
 | `cglg init` | Saves the branching model and agent policy in `changelog.json` (and can add a short note to `AGENTS.md`/`CLAUDE.md`). |
 | `cglg guide` | Prints the instructions for AI agents, tailored to the project's configuration. |
 
+Files are rewritten with the line endings they already have (CRLF stays CRLF, LF stays LF), and new files follow the project's existing ones, so teams mixing Windows and macOS/Linux never get whole-file diffs from a release.
+
 Before starting, every command refuses to run with uncommitted changes. In a terminal it offers to commit them; otherwise pass `--message "<commit message>"` or commit them yourself.
 
 ### Changelog entries
@@ -173,6 +175,7 @@ Settings live in the `config` section of `changelog.json`. All keys are optional
 - The version is bumped by editing `package.json` directly instead of running `npm version`, so npm's `preversion`/`version`/`postversion` scripts are not run.
 - Sections in `CHANGELOG.md` follow the Keep a Changelog order (Added, Changed, Deprecated, Removed, Fixed, Security).
 - Tags are now annotated (`git tag -a`), and merges never open an editor.
+- Line endings of `changelog.json`, `CHANGELOG.md` and the version files are preserved (0.x always wrote LF).
 
 ## Development
 
